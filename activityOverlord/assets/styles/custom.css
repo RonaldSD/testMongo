@@ -1,0 +1,13 @@
+/**
+*
+*
+**/
+
+#loginForm h2{
+	text-align: center;
+}
+
+#loginForm input{
+	width: 250px;
+	margin: 0 auto;
+}

@@ -1,0 +1,29 @@
+<h1>Simple sign up form</h1>
+
+<div class="container">
+	<form action="/user/create" onsubmit="return clientFormValidation()" method="POST" class="form-signin" id="loginForm">
+		
+		<!-- Form heading-->
+		<h2 class="form-signin-heading">Create an account</h2>
+		
+		<!-- Produce flash message-->
+		<% if(flash && flash.err){ %>
+			<ul class="alert alert-success">
+				<% Object.keys(flash.err).forEach(function(error){ %>
+					<li><%- JSON.stringify( flash.err[error]) %></li>
+				<% })%>
+			</ul>
+		<% } %>
+		
+		<!-- Input feilds-->
+		<input type="text" class="form-control" placeholder="Name" name="name" id="fullName">
+		<input type="text" class="form-control" placeholder="Title" name="title" id="title">
+		<input type="text" class="form-control" placeholder="Email" name="email" id="email">
+		<input type="password" class="form-control" placeholder="Password" name="password">
+		<input type="password" class="form-control" placeholder="Confirm Password" name="confirmation">
+
+		<!-- Buttons -->
+		<input type="submit" class="btn btn-lg btn-primary btn-block" onclick="clientFormValidation()" value="Create Account"/>
+		<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+	</form>
+</div>
